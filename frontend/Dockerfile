@@ -29,4 +29,4 @@ EXPOSE 3000
 HEALTHCHECK --interval=30s --timeout=5s \
   CMD wget -qO- http://localhost:3000/ || exit 1
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["/bin/sh", "-c", "envsubst '$PORT' < /etc/nginx/conf.d/default.conf > /tmp/default.conf && cp /tmp/default.conf /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"]
