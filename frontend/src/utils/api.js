@@ -2,7 +2,7 @@ import axios from 'axios'
 
 // In dev: Vite proxies /api → backend:8000
 // In prod (Docker): nginx proxies /api → backend:8000
-const API_BASE = ''
+const API_BASE = import.meta.env.VITE_API_URL || ''
 
 const api = axios.create({
   baseURL: `${API_BASE}/api/v1`,

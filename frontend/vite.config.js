@@ -5,12 +5,6 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 3000,
-    proxy: {
-      '/api': { target: 'http://backend:8000', changeOrigin: true },
-      '/health': { target: 'http://backend:8000', changeOrigin: true },
-      '/metrics': { target: 'http://backend:8000', changeOrigin: true },
-      '/stats': { target: 'http://backend:8000', changeOrigin: true },
-    }
   },
   build: {
     outDir: 'dist',
