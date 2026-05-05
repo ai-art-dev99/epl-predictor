@@ -1,0 +1,16 @@
+.env
+.env.example
+__pycache__/
+*.pyc
+*.pyo
+node_modules/
+build/
+dist/
+.DS_Store
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+prometheus-data/
+grafana-data/
+*.log

@@ -1,0 +1,19 @@
+# Railway Deployment Configuration
+# Deploy each service as a separate Railway service
+
+# Backend service
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "backend/Dockerfile"
+
+[deploy]
+startCommand = "uvicorn main:app --host 0.0.0.0 --port $PORT --workers 1"
+healthcheckPath = "/health"
+healthcheckTimeout = 30
+restartPolicyType = "ON_FAILURE"
+
+# Environment variables to set in Railway dashboard:
+# ANTHROPIC_API_KEY
+# FOOTBALL_DATA_API_KEY
+# REDIS_URL (use Railway Redis plugin)
+# ENVIRONMENT=production
